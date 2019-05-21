@@ -33,6 +33,7 @@ endfunction()
 qos_demo_executable(liveliness)
 qos_demo_executable(lifespan)
 qos_demo_executable(deadline)
+qos_demo_executable(durability)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
