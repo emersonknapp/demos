@@ -21,6 +21,7 @@ from rclpy.duration import Duration
 from rclpy.executors import SingleThreadedExecutor
 from rclpy.qos import QoSDurabilityPolicy
 from rclpy.qos import QoSProfile
+from rclpy.qos import QoSReliabilityPolicy
 
 
 def parse_args():
@@ -51,7 +52,8 @@ def main(args=None):
 
     qos_profile = QoSProfile(
         depth=parsed_args.history,
-        durability=QoSDurabilityPolicy.RMW_QOS_POLICY_DURABILITY_TRANSIENT_LOCAL,
+        reliability=QoSReliabilityPolicy.RELIABLE,
+        durability=QoSDurabilityPolicy.TRANSIENT_LOCAL,
         lifespan=lifespan)
 
     listener = Listener(

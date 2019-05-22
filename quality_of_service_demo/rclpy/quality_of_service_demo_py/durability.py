@@ -2,6 +2,7 @@ import rclpy
 from rclpy.node import Node
 from rclpy.qos import QoSDurabilityPolicy
 from rclpy.qos import QoSProfile
+from rclpy.qos import QoSReliabilityPolicy
 
 from std_msgs.msg import String
 
@@ -13,7 +14,8 @@ def main(args=None):
     node = Node('durability_demo')
     qos_profile = QoSProfile(
         depth=1,
-        durability=QoSDurabilityPolicy.RMW_QOS_POLICY_DURABILITY_TRANSIENT_LOCAL)
+        durability=QoSDurabilityPolicy.TRANSIENT_LOCAL,
+        reliability=QoSReliabilityPolicy.RELIABLE)
     publisher = node.create_publisher(String, topic, qos_profile)
 
     message = String()

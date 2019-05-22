@@ -102,7 +102,8 @@ int main(int argc, char * argv[])
   rclcpp::QoS qos_profile(history);
   qos_profile
   .transient_local()
-  .lifespan(lifespan_duration);
+  .lifespan(lifespan_duration)
+  .reliable();
 
   rclcpp::SubscriptionOptions sub_options;
   rclcpp::PublisherOptions pub_options;

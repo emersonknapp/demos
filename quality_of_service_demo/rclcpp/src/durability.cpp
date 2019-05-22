@@ -29,7 +29,7 @@ int main(int argc, char * argv[])
   auto node = std::make_shared<rclcpp::Node>("durability_demo");
 
   rclcpp::QoS qos_profile(1);
-  qos_profile.transient_local();  // store the message on the publisher indefinitely
+  qos_profile.transient_local().reliable();  // store the message on the publisher indefinitely
 
   rclcpp::SubscriptionOptions sub_options;
   rclcpp::PublisherOptions pub_options;
